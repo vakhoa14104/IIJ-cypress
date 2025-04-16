@@ -15,11 +15,12 @@ When("I click on next button", () => {
 });
 
 When("I enter valid username {string} and password {string}", () => {
-    cy.origin("https://higio-sso-qc.iijvn.local/auth/realms/IAM-IIJ-1/protocol/openid-connect", () => {
-    LoginPageTenant.fillusername("iij_khoavo4");
-    LoginPageTenant.fillpassword("Passw0rd#123").type("{enter}");
+  cy.origin("https://higio-sso-qc.iijvn.local/auth/realms/IAM-IIJ-1/protocol/openid-connect", () => {
+    cy.get('input[placeholder="Username"]').should('be.visible').clear().type("iij_khoavo4");
+    cy.get('input[placeholder="Password"]').should('be.visible').clear().type("Passw0rd#123{enter}");
+  });
 });
-});
+
 
 // When("I click the login button", () => {
 //     cy.origin("https://higio-sso-qc.iijvn.local/auth/realms/IAM-IIJ-1/protocol/openid-connect", () => {
@@ -27,6 +28,6 @@ When("I enter valid username {string} and password {string}", () => {
 // });
 // });
 
-Then("I should be redirected to the dashboard", () => {
-  cy.url().should("include", "/dashboard");
+Then("I should be redirected to the profile page", () => {
+  LoginPageTenant.verifyLoginSuccess();
 });
