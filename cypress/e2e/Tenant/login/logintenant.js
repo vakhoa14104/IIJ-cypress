@@ -21,13 +21,6 @@ When("I enter valid username {string} and password {string}", () => {
   });
 });
 
-
-// When("I click the login button", () => {
-//     cy.origin("https://higio-sso-qc.iijvn.local/auth/realms/IAM-IIJ-1/protocol/openid-connect", () => {
-//         cy.get('button[class="btn uppercase btn-green btn-full-w  margin-top-3"]').click();
-// });
-// });
-
 Then("I should be redirected to the profile page", () => {
   LoginPageTenant.verifyLoginSuccess();
 });

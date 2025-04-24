@@ -18,6 +18,9 @@ module.exports = defineConfig({
       return config;
     },
     specPattern: "cypress/e2e/**/*.feature",
+    //supportFile: false,
     baseUrl: "https://higio-iam-qc.iijvn.local",
+    experimentalSessionAndOrigin: true,
+    testIsolation: false,
   },
 });
